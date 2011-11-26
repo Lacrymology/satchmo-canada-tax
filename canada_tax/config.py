@@ -15,3 +15,12 @@ config_register(
          default=False)
 )
 
+config_register(
+    BooleanValue(TAX_GROUP,
+        'TAX_SHIPPING_DETAILS_SEPARATE',
+        description=_("Separate shipping tax from merchandise tax in tax details?"),
+        requires=TAX_MODULE,
+        requiresvalue='canada_tax',
+        default=False)
+)
+

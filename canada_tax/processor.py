@@ -1,7 +1,5 @@
-from decimal import Decimal
-from django.utils.translation import ugettext as _
-from django.core.exceptions import ImproperlyConfigured
-from django.db.models import Q
+from decimal import Decimal, getcontext, ROUND_HALF_UP
+from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 from l10n.models import AdminArea, Country
 from livesettings import config_value
 from canada_tax.models import CanadianTaxRate as TaxRate
@@ -12,6 +10,20 @@ import logging
 import operator
 
 log = logging.getLogger('tax.canada_tax')
+
+def round_cents(quant):
+    """
+    Round to the nearest cent
+
+    if the amount is less than half a cent, round down; or
+    if the amount is equal to or more than half a cent, round up.
+    """
+    cents = Decimal("0.01")
+    rounding = getcontext().rounding
+    getcontext().rounding = ROUND_HALF_UP
+    ret = quant.quantize(cents)
+    getcontext().rounding = rounding
+    return ret
 
 class Processor(object):
     
@@ -106,17 +118,11 @@ class Processor(object):
         
         # get all the rates for the given area
         if area:
-            try:
-                rates += list(TaxRate.objects.filter(taxClass=taxclass, taxZone=area))
-            except TaxRate.DoesNotExist:
-                pass
+            rates += list(TaxRate.objects.filter(taxClass=taxclass, taxZone=area))
         
         # get all rates for the given country
         if country:
-            try:
-                rates += list(TaxRate.objects.filter(taxClass=taxclass, taxCountry=country))
-            except TaxRate.DoesNotExist:
-                pass
+            rates += list(TaxRate.objects.filter(taxClass=taxclass, taxCountry=country))
 
         log.debug("Got rates for taxclass: %s, area: %s, country: %s = [%s]", taxclass, area, country, rates)
 
@@ -126,26 +132,29 @@ class Processor(object):
             return self.tax_rate_list(rates)[0]
 
     def get_percent(self, taxclass="Default", area=None, country=None):
-        return 100*self.get_rate(taxclass=taxclass, area=area, country=country)
+        return 100 * self.get_rate(taxclass=taxclass, area=area, country=country)
     
     # given a list of TaxRate objects
     #   - try to split into compounded/non-compounded rates
     #   - order the compound rates properly
-    #   - finalize all the rates such that the sum of each rate*price is the total tax
+    #   - finalize all the rates such that the sum of each rate*price is
+    #     the total tax
     #   - return total tax rate + list of taxCodes and individual rates
     #       (decimal('X,XX'), [('TAXCODE', Decimal('X.XX'))]
     def tax_rate_list(self, rates):
-        if len(rates) == 0:
+        if not rates:
             return (Decimal("0.00"), [])
         
-        override_rates = filter(lambda x: x.override == True, rates)
-        if len(override_rates):
+        override_rates = [r for r in rates if r.override]
+        if override_rates:
             # since this is a single overriding rate, it returns the first
             # override rate found, along with related rate data.
-            return (percentage, [(override_rates[0].taxCode, override_rates[0].percentage)])
+            rate = override_rates[0]
+            return (rate.percentage, [(rate.taxCode, rate.percentage)])
 
-        regular_rates = filter(lambda x: x.compound == False, rates)
-        compound_rates = sorted(filter(lambda x: x.compound == True, rates), key=operator.attrgetter("compound_order"))
+        regular_rates = [r for r in rates if not r.compound]
+        compound_rates = sorted([r for r in rates if r.compound],
+                key=operator.attrgetter("compound_order"))
         
         totalrate = Decimal('0.00')
         receipt_data = []
@@ -164,7 +173,7 @@ class Processor(object):
 
     def by_price(self, taxclass, price):
         rate = self.get_rate(taxclass)
-        return rate * price
+        return round_cents(rate * price)
 
     def by_product(self, product, quantity=Decimal('1')):
         """Get the tax for a given product"""
@@ -180,25 +189,46 @@ class Processor(object):
         else:
             return Decimal("0.00")
 
-    def shipping(self, subtotal=None):
+    def shipping(self, subtotal=None, with_details=False):
         if subtotal is None and self.order:
             subtotal = self.order.shipping_sub_total
 
+        tax_details = {}
         if subtotal:
-            rate = None
+            full_rate = None
+            taxes = []
             if config_value('TAX','TAX_SHIPPING_CANADIAN'):
                 try:
                     # get the tax class used for taxing shipping
-                    tc = TaxClass.objects.get(title=config_value('TAX', 'TAX_CLASS'))
-                    rate = self.get_rate(taxclass=tc)
-                    return rate * subtotal
-                except:
+                    taxclass = TaxClass.objects.get(title=config_value('TAX', 'TAX_CLASS'))
+                    full_rate, taxes = self.get_rate(taxclass=taxclass, get_object=True)
+                except ObjectDoesNotExist:
                     log.error("'Shipping' TaxClass doesn't exist.")
-        return Decimal("0.00")
+
+            if full_rate:
+                ship_tax = round_cents(full_rate * subtotal)
+            else:
+                ship_tax = Decimal("0.00")
+
+            if with_details:
+                for taxcode, rate in taxes:
+                    if taxcode not in tax_details:
+                        tax_details[taxcode] = Decimal('0.00')
+                    tax_details[taxcode] += round_cents(rate * subtotal)
+            
+        else:
+            ship_tax = Decimal("0.00")
+        
+        if with_details:
+            return ship_tax, tax_details
+        else:
+            return ship_tax
 
     def process(self, order=None):
         """
         Calculate the tax and return it.
+        
+        Probably need to make a breakout.
         """
         if order:
             self.order = order
@@ -208,28 +238,40 @@ class Processor(object):
         sub_total = Decimal('0.00')
         tax_details = {}
         
-        rates = {}
         for item in order.orderitem_set.filter(product__taxable=True):
-            tc = item.product.taxClass
-            if tc:
-                tc_key = tc.title
+            # taxclass defaults to 'Default' if it's not set.
+            taxclass = item.product.taxClass
+            if taxclass:
+                taxclass_key = taxclass.title
             else:
-                tc_key = "Default"
-            if rates.has_key(tc_key):
-                rate = rates[tc_key]
-            else:
-                rate, taxes = self.get_rate(tc, get_object=True)
-                for r in taxes:
-                    tax_details[r[0]] = Decimal('0.00')
-                rates[tc_key] = rate
-                
+                taxclass_key = 'Default'
+
+            # get_object=True makes us get the individual tax rates
+            # along with the full rate.
+            full_rate, taxes = self.get_rate(taxclass, get_object=True)
+
+            # aggregate the subtotal using the full rate.
             price = item.sub_total
-            sub_total += price*rate
-            for r in taxes:
-                tax_details[r[0]] += r[1]*price
+            sub_total += round_cents(price * full_rate)
+
+            # aggregate tax details using individual rates.
+            for taxcode, rate in taxes:
+                if taxcode not in tax_details:
+                    tax_details[taxcode] = Decimal('0.00')
+                tax_details[taxcode] += round_cents(rate * price)
         
-        #shipping_tax = self.shipping()
-        #$sub_total += shipping_tax
-        #tax_details[_('Tax on Shipping')] = shipping_tax
+        ship_taxes, ship_tax_details = self.shipping(with_details=True)
+        sub_total += ship_taxes
+
+        if config_value("TAX", "TAX_SHIPPING_DETAILS_SEPARATE"):
+            # Keep the shipping tax details separate from the merchandise taxes
+            for taxcode in ship_tax_details:
+                tax_details['Shipping ' + taxcode] = ship_tax_details['taxCode']
+        else:
+            # combine shipping and merchandise tax details together
+            for taxcode in ship_tax_details:
+                tax_details[taxcode] = (tax_details.get(taxcode, Decimal('0.00')) +
+                        ship_tax_details[taxcode])
         
         return sub_total, tax_details
+
