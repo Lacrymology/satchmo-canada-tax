@@ -11,20 +11,6 @@ import operator
 
 log = logging.getLogger('tax.canada_tax')
 
-def round_cents(quant):
-    """
-    Round to the nearest cent
-
-    if the amount is less than half a cent, round down; or
-    if the amount is equal to or more than half a cent, round up.
-    """
-    cents = Decimal("0.01")
-    rounding = getcontext().rounding
-    getcontext().rounding = ROUND_HALF_UP
-    ret = quant.quantize(cents)
-    getcontext().rounding = rounding
-    return ret
-
 class Processor(object):
     
     method = "area"
@@ -173,7 +159,7 @@ class Processor(object):
 
     def by_price(self, taxclass, price):
         rate = self.get_rate(taxclass)
-        return round_cents(rate * price)
+        return rate * price
 
     def by_product(self, product, quantity=Decimal('1')):
         """Get the tax for a given product"""
@@ -206,7 +192,7 @@ class Processor(object):
                     log.error("'Shipping' TaxClass doesn't exist.")
 
             if full_rate:
-                ship_tax = round_cents(full_rate * subtotal)
+                ship_tax = full_rate * subtotal
             else:
                 ship_tax = Decimal("0.00")
 
@@ -214,7 +200,7 @@ class Processor(object):
                 for taxcode, rate in taxes:
                     if taxcode not in tax_details:
                         tax_details[taxcode] = Decimal('0.00')
-                    tax_details[taxcode] += round_cents(rate * subtotal)
+                    tax_details[taxcode] += rate * subtotal
             
         else:
             ship_tax = Decimal("0.00")
@@ -252,13 +238,13 @@ class Processor(object):
 
             # aggregate the subtotal using the full rate.
             price = item.sub_total
-            sub_total += round_cents(price * full_rate)
+            sub_total += price * full_rate
 
             # aggregate tax details using individual rates.
             for taxcode, rate in taxes:
                 if taxcode not in tax_details:
                     tax_details[taxcode] = Decimal('0.00')
-                tax_details[taxcode] += round_cents(rate * price)
+                tax_details[taxcode] += rate * price
         
         ship_taxes, ship_tax_details = self.shipping(with_details=True)
         sub_total += ship_taxes
