@@ -258,6 +258,9 @@ class Processor(object):
             for taxcode in ship_tax_details:
                 tax_details[taxcode] = (tax_details.get(taxcode, Decimal('0.00')) +
                         ship_tax_details[taxcode])
-        
+
+        log.debug("""returning these totals for order #%d:
+  order subtotal: %s
+  taxes: %s (%s)""", order.id, order.sub_total, sub_total, tax_details)
         return sub_total, tax_details
 
