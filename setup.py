@@ -13,8 +13,4 @@ setup(
         'http://bitbucket.org/benoitcsirois/satchmo-canada-tax',
 
     packages=find_packages(),
-    include_package_data=True,
-    install_requires = [
-        'satchmo<=0.9.2',
-        ]
 )

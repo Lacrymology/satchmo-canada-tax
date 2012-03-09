@@ -1,0 +1,286 @@
+[
+  {
+    "pk": 39,
+    "model": "l10n.country",
+    "fields": {
+      "name": "CANADA",
+      "admin_area": null,
+      "printable_name": "Canada",
+      "numcode": 124,
+      "active": true,
+      "iso2_code": "CA",
+      "iso3_code": "CAN",
+      "continent": "NA"
+    }
+  },
+  {
+    "pk": 612,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "AB",
+      "name": "Alberta"
+    }
+  },
+  {
+    "pk": 613,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "BC",
+      "name": "British Columbia"
+    }
+  },
+  {
+    "pk": 611,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "",
+      "name": "Canada (general)"
+    }
+  },
+  {
+    "pk": 614,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "MB",
+      "name": "Manitoba"
+    }
+  },
+  {
+    "pk": 615,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "NB",
+      "name": "New Brunswick"
+    }
+  },
+  {
+    "pk": 616,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "NL",
+      "name": "Newfoundland and Labrador"
+    }
+  },
+  {
+    "pk": 623,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "NT",
+      "name": "Northwest Territories"
+    }
+  },
+  {
+    "pk": 617,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "NS",
+      "name": "Nova Scotia"
+    }
+  },
+  {
+    "pk": 624,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "NU",
+      "name": "Nunavut"
+    }
+  },
+  {
+    "pk": 618,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "ON",
+      "name": "Ontario"
+    }
+  },
+  {
+    "pk": 619,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "PE",
+      "name": "Prince Edward Island"
+    }
+  },
+  {
+    "pk": 620,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "QC",
+      "name": "Quebec"
+    }
+  },
+  {
+    "pk": 621,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "SK",
+      "name": "Saskatchewan"
+    }
+  },
+  {
+    "pk": 622,
+    "model": "l10n.adminarea",
+    "fields": {
+      "active": true,
+      "country": 39,
+      "abbrev": "YT",
+      "name": "Yukon Territory"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 612,
+      "abbrev": "AB",
+      "name": "Alberta",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 613,
+      "abbrev": "BC",
+      "name": "Colombie-Britannique",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 614,
+      "abbrev": "MB",
+      "name": "Manitoba",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 615,
+      "abbrev": "NB",
+      "name": "Nouveau-Brunswick",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 616,
+      "abbrev": "NL",
+      "name": "Terre-Neuve-et-Labrador",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 623,
+      "abbrev": "NT",
+      "name": "Territoires du Nord-Ouest",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 617,
+      "abbrev": "NS",
+      "name": "Nouvelle-\u00c9cosse",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 624,
+      "abbrev": "NU",
+      "name": "Nunavut",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 618,
+      "abbrev": "ON",
+      "name": "Ontario",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 619,
+      "abbrev": "PE",
+      "name": "\u00cele-du-Prince-\u00c9douard",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 620,
+      "abbrev": "QC",
+      "name": "Qu\u00e9bec",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 621,
+      "abbrev": "SK",
+      "name": "Saskatchewan",
+      "language_code": "fr"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "l10n.adminareatranslation",
+    "fields": {
+      "admin_area": 622,
+      "abbrev": "YT",
+      "name": "Yukon",
+      "language_code": "fr"
+    }
+  }
+]

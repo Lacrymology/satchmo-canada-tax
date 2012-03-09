@@ -1,0 +1,563 @@
+[
+  {
+    "pk": 1,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": 39,
+      "taxZone": null,
+      "percentage": "0.050000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": 39,
+      "taxZone": null,
+      "percentage": "0.050000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 37,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 612,
+      "percentage": "0.000000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 38,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 612,
+      "percentage": "0.000000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 5,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 613,
+      "percentage": "0.120000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 6,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 613,
+      "percentage": "0.120000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 10,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 614,
+      "percentage": "0.070000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 9,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 614,
+      "percentage": "0.070000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 15,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 615,
+      "percentage": "0.130000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 16,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 615,
+      "percentage": "0.130000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 19,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 616,
+      "percentage": "0.130000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 20,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 616,
+      "percentage": "0.130000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 17,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 617,
+      "percentage": "0.150000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 18,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 617,
+      "percentage": "0.150000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 11,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 618,
+      "percentage": "0.130000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 12,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 618,
+      "percentage": "0.130000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 13,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 619,
+      "percentage": "0.100000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 14,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 619,
+      "percentage": "0.100000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 2,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 620,
+      "percentage": "0.085000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 4,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 620,
+      "percentage": "0.085000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 7,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 621,
+      "percentage": "0.050000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 8,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 621,
+      "percentage": "0.050000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 39,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 622,
+      "percentage": "0.000000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 40,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 622,
+      "percentage": "0.000000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 41,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 623,
+      "percentage": "0.000000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 42,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 623,
+      "percentage": "0.000000",
+      "taxClass": 2
+    }
+  },
+  {
+    "pk": 43,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 624,
+      "percentage": "0.000000",
+      "taxClass": 1
+    }
+  },
+  {
+    "pk": 44,
+    "model": "area.taxrate",
+    "fields": {
+      "taxCountry": null,
+      "taxZone": 624,
+      "percentage": "0.000000",
+      "taxClass": 2
+    }
+  },
+
+  {
+    "pk": 1, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "GST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": true
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "GST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": true
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": true
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "PST", 
+      "compound_order": null, 
+      "compound": true
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": true, 
+      "taxCode": "HST", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 37, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 39, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 41, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 42, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 43, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }, 
+  {
+    "pk": 44, 
+    "model": "canada_tax.canadiantaxrate", 
+    "fields": {
+      "override": false, 
+      "taxCode": "n/a", 
+      "compound_order": null, 
+      "compound": false
+    }
+  }
+]
