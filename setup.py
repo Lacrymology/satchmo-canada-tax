@@ -15,7 +15,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires = [
-        'django==1.2.5',
         'satchmo<=0.9.2',
         ]
 )
