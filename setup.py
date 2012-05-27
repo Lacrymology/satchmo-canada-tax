@@ -13,4 +13,5 @@ setup(
         'http://bitbucket.org/benoitcsirois/satchmo-canada-tax',
 
     packages=find_packages(),
+    include_package_data=True,
 )
