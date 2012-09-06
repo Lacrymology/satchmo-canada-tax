@@ -185,7 +185,7 @@
     "fields": {
       "taxCountry": null,
       "taxZone": 620,
-      "percentage": "0.085000",
+      "percentage": "0.095000",
       "taxClass": 1
     }
   },
@@ -195,7 +195,7 @@
     "fields": {
       "taxCountry": null,
       "taxZone": 620,
-      "percentage": "0.085000",
+      "percentage": "0.095000",
       "taxClass": 2
     }
   },
